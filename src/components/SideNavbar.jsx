@@ -1,8 +1,9 @@
 
 import React, { useState } from "react";
-import { FiMenu, FiHome, FiPackage, FiShoppingCart, FiUser, FiSearch, FiBell } from "react-icons/fi";
+import { FiMenu, FiHome, FiPackage, FiShoppingCart, FiUser, FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
+import logo from "../assets/logo.png";
 
 export default function NavbarWithSidebar({ children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,17 +17,26 @@ export default function NavbarWithSidebar({ children }) {
         ${isOpen ? "w-40" : "w-0"} lg:w-32 z-50 flex flex-col items-center overflow-hidden`}
       >
         <ul className="mt-20 space-y-6 w-full">
-          {[  
+          {[
             { name: "Home", icon: <FiHome size={20} />, link: "/" },
             { name: "Products", icon: <FiPackage size={20} />, link: "/products" },
             { name: "Cart", icon: <FiShoppingCart size={20} />, link: "/cart" },
             { name: "Profile", icon: <FiUser size={20} />, link: "/profile" },
           ].map((item) => (
-            <li key={item.name} className="w-full flex justify-center" onClick={() => setActiveItem(item.name)}>
-              <Link to={item.link || "#"} className="flex flex-col items-center">
-                <div className={`flex items-center justify-center rounded-full h-12 w-12 ${
-                  activeItem === item.name ? "bg-[#2B8AF0] text-white" : "bg-none text-black"
-                }`}>
+            <li
+              key={item.name}
+              className="w-full flex justify-center"
+              onClick={() => {
+                setActiveItem(item.name);
+                setIsOpen(false);
+              }}
+            >
+              <Link to={item.link} className="flex flex-col items-center">
+                <div
+                  className={`flex items-center justify-center rounded-full h-12 w-12 ${
+                    activeItem === item.name ? "bg-[#2B8AF0] text-white" : "bg-none text-black"
+                  }`}
+                >
                   {item.icon}
                 </div>
                 <span className="mt-2 text-sm">{item.name}</span>
@@ -36,7 +46,12 @@ export default function NavbarWithSidebar({ children }) {
         </ul>
       </div>
 
-      {isOpen && <div className="fixed inset-0 bg-black bg-opacity-50 lg:hidden z-40" onClick={() => setIsOpen(false)}></div>}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 lg:hidden z-40"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
 
       <div className="flex-1 flex flex-col transition-all duration-300 lg:ml-40">
         <nav className="fixed top-0 left-0 w-full bg-slate-300 p-4 flex items-center justify-between z-50">
@@ -44,9 +59,14 @@ export default function NavbarWithSidebar({ children }) {
             <button className="lg:hidden p-2 text-black" onClick={() => setIsOpen(!isOpen)}>
               <FiMenu size={24} />
             </button>
-            <h1 className="text-lg font-bold ml-4 lg:ml-7">Logo</h1>
+            <img 
+              src={logo} 
+              alt="Logo" 
+              className="h-8 w-auto ml-4 lg:ml-7 transform scale-125"
+              style={{ transformOrigin: "left center" }}
+            />
           </div>
-          
+
           <div className="hidden lg:flex flex-1 ml-4">
             <Searchbar onSearch={(query) => console.log(query)} />
           </div>

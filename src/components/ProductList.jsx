@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ProductCard from "./ProductCard";
 import shoesData from "../data/shoesData"; 
 
-const bgColors =["#B7EAC8", "#B5B0F5", "#A9ECEC", "#FFC5D3"];
+const bgColors = ["#B7EAC8", "#B5B0F5", "#A9ECEC", "#FFC5D3"];
 
 export default function ProductList() {
   const [sortOrder, setSortOrder] = useState("");
@@ -21,9 +21,9 @@ export default function ProductList() {
 
   return (
     <div className="w-full p-4 flex flex-col">
-    
+      {/* Sorting Dropdown */}
       <div className="w-full flex justify-end items-center mb-4">
-        <h2 className="text-lg font-bold mr-4 ">Filters:</h2>
+        <h2 className="text-lg font-bold mr-4">Filters:</h2>
         <select onChange={handleSortChange} className="border p-2 rounded bg-white text-black">
           <option value="">Sort by</option>
           <option value="low-to-high">Price: Low to High</option>
@@ -31,7 +31,8 @@ export default function ProductList() {
         </select>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+ 
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         {sortedShoes.map((shoe, index) => (
           <ProductCard 
             key={shoe.id} 

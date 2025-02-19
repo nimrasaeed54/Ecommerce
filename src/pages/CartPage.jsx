@@ -99,7 +99,7 @@ export default function CartPage() {
                           className="w-16 h-16 object-cover rounded-lg border"
                         />
                         <div className="flex flex-col">
-                          <h2 className="text-lg font-semibold text-gray-900">
+                          <h2 className="text-lg  font-semibold text-gray-900">
                             {item.name}
                           </h2>
                           <div className="flex items-center gap-2 mt-1">
