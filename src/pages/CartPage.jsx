@@ -53,7 +53,7 @@ export default function CartPage() {
       transition={{ duration: 0.6 }}
       className="max-w-screen-full ml-5 bg-white rounded-3xl mx-auto p-6 mt-12 flex flex-col lg:flex-row gap-6"
     >
-      {/* Cart Items Section */}
+    
       <div className="flex-1">
         <motion.h1
           initial={{ opacity: 0 }}
@@ -111,7 +111,7 @@ export default function CartPage() {
                           </div>
                         </div>
                       </td>
-                      <td className="p-4 font-medium">${item.price}</td>
+                      <td className="p-4  font-medium sm:font-xs">${item.price}</td>
                       <td className="p-4 text-center">
                         <div className="flex items-center justify-center gap-3">
                           <button
@@ -160,7 +160,7 @@ export default function CartPage() {
         )}
       </div>
 
-      {/* Order Summary Section */}
+  
       {cart.length > 0 && (
         <motion.div
           initial={{ opacity: 0, x: 50 }}
