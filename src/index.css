@@ -5,4 +5,12 @@ body{
     background-color:#cbd5e1;
 }
 
-  
+@media (max-width: 768px) {
+    .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .cart-item img {
+      margin-bottom: 10px;
+    }
+  }

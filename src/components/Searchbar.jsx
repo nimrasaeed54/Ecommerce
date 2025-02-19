@@ -13,7 +13,7 @@ const Searchbar = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="relative w-full max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="relative w-full  ml-10 max-w-md mx-auto">
 
       <button
         type="submit"

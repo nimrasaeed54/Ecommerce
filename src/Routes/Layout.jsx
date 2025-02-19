@@ -1,4 +1,4 @@
-// Layout.js
+
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import SideNavbar from '../components/SideNavbar';
@@ -13,6 +13,7 @@ export default function Layout() {
       <div className="flex-1 -ml-16 mt-7 rounded-3xl overflow-auto">
         <Outlet />
       </div>
+
     </div>
   );
 }
