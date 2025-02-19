@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { FiMenu, FiHome, FiPackage, FiShoppingCart, FiUser, FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import Searchbar from "./Searchbar";
 
 export default function NavbarWithSidebar({ children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -49,7 +49,7 @@ export default function NavbarWithSidebar({ children }) {
 
        
           <div className="hidden lg:flex flex-1 justify-center">
-            <SearchBar onSearch={(query) => console.log(query)} />
+            <Searchbar onSearch={(query) => console.log(query)} />
           </div>
 
    
@@ -61,7 +61,7 @@ export default function NavbarWithSidebar({ children }) {
       
         {showSearch && (
           <div className="fixed top-14 left-0 w-full bg-white p-2 z-50">
-            <SearchBar onSearch={(query) => console.log(query)} />
+            <Searchbar onSearch={(query) => console.log(query)} />
           </div>
         )}
 
