@@ -166,7 +166,7 @@ export default function CartPage() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="w-full lg:w-1/3 bg-[#F4E6FD] shadow-lg rounded-lg p-6"
+          className="w-full lg:w-1/3 bg-gray-300 shadow-lg rounded-lg p-6"
         >
           <motion.h2
             initial={{ opacity: 0 }}
