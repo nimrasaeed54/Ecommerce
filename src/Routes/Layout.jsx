@@ -8,9 +8,7 @@ export default function Layout() {
     <div className="flex h-screen">
   
       <SideNavbar />
-
-      
-      <div className="flex-1 -ml-16 mt-7 rounded-3xl overflow-auto">
+      <div className="flex-1 -ml-24 mt-20 pl-14 rounded-3xl overflow-auto">
         <Outlet />
       </div>
 

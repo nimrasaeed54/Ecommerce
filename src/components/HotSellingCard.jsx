@@ -5,7 +5,7 @@ import shoeImage from "../assets/shoe4.png";
 
 export default function HotSellingCard() {
   return (
-    <div className="w-full max-w-3xl bg-[#FFE479]  text-black rounded-3xl flex flex-col px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-12 relative mx-auto mt-10 lg:mt-0 sm:mt-10 md:mt-16">
+    <div className="w-full max-w-3xl bg-[#FFE479]  text-black rounded-3xl flex flex-col px-4 py-6 sm:px-6 sm:py-8 md:px-10 md:py-12 relative mx-auto  ">
 
       <div className="text-left">
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold">Explore New</h1>

@@ -2,179 +2,117 @@
 import React from "react";
 import { motion } from "framer-motion";
 import shoesData from "../data/shoesData";
-import { StarIcon, ShoppingCartIcon, HeartIcon } from "@heroicons/react/24/solid";
+import { StarIcon } from "@heroicons/react/24/solid";
 
 export default function ProductDetail() {
   const shoe = shoesData[0];
+
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex flex-col md:flex-row max-w-screen-full max-h-screen-full rounded-3xl items-center p-6 mt-12 md:p-12 bg-white shadow-xl"
+      className="flex flex-col md:flex-row w-full h-screen mx-auto p-6 md:p-12 bg-white "
     >
-      {/* Product Image Section */}
-      <motion.div
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="w-full md:w-1/2 flex justify-center"
-      >
-        <motion.img
-          src={shoe.img}
-          alt={shoe.name}
-          className="w-full max-w-md object-contain rounded-lg shadow-lg"
+      <div className="w-full md:w-1/2 flex flex-col items-start">
+        <motion.div
+          className="w-full h-[400px] rounded-3xl flex items-center justify-center  p-4"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
-        />
-      </motion.div>
+        >
+          <motion.img
+            src={shoe.img}
+            alt={shoe.name}
+            className="w-auto h-4/5 object-contain"
+          />
+        </motion.div>
 
-      {/* Product Details Section */}
+        <div className="flex gap-3 mt-4">
+          {[...Array(3)].map((_, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              className="w-16 h-16 rounded-lg shadow-md border border-gray-300 p-1 cursor-pointer hover:border-gray-500"
+            >
+              <img
+                src={shoe.img}
+                alt={`Thumbnail ${index + 1}`}
+                className="w-full h-full object-contain rounded-sm"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
       <motion.div
         initial={{ x: 100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="w-full md:w-1/2 space-y-6 mt-6 md:mt-0 md:pl-8"
+        className="w-full md:w-1/2 space-y-4 md:pl-12 flex flex-col justify-start"
       >
-        {/* Product Name */}
-        <motion.h1
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4 }}
-          className="text-4xl font-bold text-gray-900"
-        >
-          {shoe.name}
-        </motion.h1>
-
-        {/* Price and Rating */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className="flex items-center justify-between"
-        >
-          <p className="text-2xl text-gray-700 font-semibold">
-            <span className="font-bold text-gray-900">Price:</span> {shoe.price}
-          </p>
-          <div className="flex items-center space-x-1">
+        <div>
+          <motion.h1
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.4 }}
+            className="text-4xl font-bold text-gray-900"
+          >
+            {shoe.name}
+          </motion.h1>
+          <div className="flex items-center space-x-1 mt-1">
             {[...Array(5)].map((_, i) => (
               <StarIcon key={i} className="h-5 w-5 text-yellow-400" />
             ))}
             <span className="text-gray-600 ml-2">(4.8)</span>
           </div>
-        </motion.div>
+        </div>
 
-        {/* Badges */}
-        {shoe.badges.length > 0 && (
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: { staggerChildren: 0.1 },
-              },
-            }}
-            className="flex gap-2"
-          >
-            {shoe.badges.map((badge, index) => (
-              <motion.span
-                key={index}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.8 },
-                  visible: { opacity: 1, scale: 1 },
-                }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-blue-500 text-white text-sm px-3 py-1 rounded-full"
-              >
-                {badge.toUpperCase()}
-              </motion.span>
-            ))}
-          </motion.div>
-        )}
+        <p className="text-3xl text-gray-700 font-semibold">
+          <span className="font-bold text-gray-900">$</span> {shoe.price}
+        </p>
 
-        {/* Product Description */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="text-gray-600 text-lg"
-        >
-          <span className="font-bold text-gray-900">Description:</span>{" "}
-          {shoe.description}
-        </motion.p>
+        <p className="text-gray-600 text-lg">
+          <span className="font-bold text-gray-900">Description:</span> {shoe.description}
+        </p>
 
-        {/* Available Colors */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.3 }}
-          className="space-y-2"
-        >
-          <span className="text-gray-900 font-bold text-lg">Available Colors:</span>
-          <div className="flex gap-2">
+        <div>
+          <span className="font-bold text-gray-900 text-lg">Color: </span>
+          <div className="flex space-x-3 mt-2">
             {shoe.colors.map((color, index) => (
-              <motion.div
+              <button
                 key={index}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.1 * index }}
-                className="w-8 h-8 rounded-full border-2 border-gray-300 cursor-pointer hover:border-blue-500"
+                className="w-8 h-8 rounded-full border-2 border-gray-300"
                 style={{ backgroundColor: color }}
               />
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* Size Selector */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
-          className="space-y-2"
-        >
-          <span className="text-gray-900 font-bold text-lg">Select Size:</span>
-          <div className="flex gap-2">
-            {["6", "7", "8", "9", "10"].map((size, index) => (
-              <motion.button
+        <div>
+          <span className="font-bold text-gray-900 text-lg">Size: </span>
+          <div className="flex space-x-3 mt-2">
+            {shoe.sizes?.map((size, index) => (
+              <button
                 key={index}
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3, delay: 0.1 * index }}
-                className="w-10 h-10 rounded-full border-2 border-gray-300 text-gray-700 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700"
+                className="px-4 py-2 border border-gray-400 text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition"
               >
                 {size}
-              </motion.button>
+              </button>
             ))}
           </div>
-        </motion.div>
+        </div>
 
-        {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.5 }}
-          className="flex gap-4 mt-6"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition-all flex-1"
-          >
-            <ShoppingCartIcon className="h-5 w-5" />
+        <div className="flex gap-4 mt-4">
+          <button className="px-6 py-3 bg-gray-500 text-white font-semibold rounded-lg shadow-md hover:bg-gray-600 transition">
+            Buy Now
+          </button>
+          <button className="px-6 py-3 border border-gray-400 text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-200 transition">
             Add to Cart
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center gap-2 bg-gray-200 text-gray-700 px-6 py-3 rounded-lg font-semibold transition-all flex-1"
-          >
-            <HeartIcon className="h-5 w-5" />
-            Wishlist
-          </motion.button>
-        </motion.div>
+          </button>
+        </div>
       </motion.div>
     </motion.div>
   );

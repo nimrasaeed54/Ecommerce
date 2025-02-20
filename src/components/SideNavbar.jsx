@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { FiMenu, FiHome, FiPackage, FiShoppingCart, FiUser, FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Searchbar from "./Searchbar";
-import logo from "../assets/logo.png";
+import logo from "../assets/navlogo.png";
 
 export default function NavbarWithSidebar({ children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,7 +16,7 @@ export default function NavbarWithSidebar({ children }) {
         className={`fixed top-0 left-0 h-full bg-slate-300 text-black transition-all duration-300 
         ${isOpen ? "w-40" : "w-0"} lg:w-32 z-50 flex flex-col items-center overflow-hidden`}
       >
-        <ul className="mt-20 space-y-6 w-full">
+        <ul className="mt-24 space-y-6 w-full">
           {[
             { name: "Home", icon: <FiHome size={20} />, link: "/" },
             { name: "Products", icon: <FiPackage size={20} />, link: "/products" },
@@ -33,9 +33,8 @@ export default function NavbarWithSidebar({ children }) {
             >
               <Link to={item.link} className="flex flex-col items-center">
                 <div
-                  className={`flex items-center justify-center rounded-full h-12 w-12 ${
-                    activeItem === item.name ? "bg-[#2B8AF0] text-white" : "bg-none text-black"
-                  }`}
+                  className={`flex items-center justify-center rounded-full h-12 w-12 ${activeItem === item.name ? "bg-[#2B8AF0] text-white" : "bg-none text-black"
+                    }`}
                 >
                   {item.icon}
                 </div>
@@ -53,18 +52,27 @@ export default function NavbarWithSidebar({ children }) {
         ></div>
       )}
 
-      <div className="flex-1 flex flex-col transition-all duration-300 lg:ml-40">
-        <nav className="fixed top-0 left-0 w-full bg-slate-300 p-4 flex items-center justify-between z-50">
+      <div className="flex-1 flex flex-col transition-all duration-300 lg:ml-40 ">
+        <nav className="fixed top-0 left-0 h-16 w-full bg-slate-300 pt-5 flex items-center justify-between z-50">
           <div className="flex items-center">
             <button className="lg:hidden p-2 text-black" onClick={() => setIsOpen(!isOpen)}>
               <FiMenu size={24} />
             </button>
-            <img 
+            {/* <img 
               src={logo} 
               alt="Logo" 
               className="h-8 w-auto ml-4 lg:ml-7 transform scale-125"
               style={{ transformOrigin: "left center" }}
-            />
+            /> */}
+            <div className="flex-1 flex justify-center sm:justify-center lg:justify-start">
+              <img
+                src={logo}
+                alt="Logo"
+                className="h-36 lg:h-44 w-auto ml-10 sm:h-32 sm:ml-20 lg:ml-0 transform scale-125"
+                style={{ transformOrigin: "left center" }}
+              />
+            </div>
+
           </div>
 
           <div className="hidden lg:flex flex-1 ml-4">

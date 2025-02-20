@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -17,7 +16,7 @@ export default function ProductCard({ product, bgColor }) {
 
   return (
     <div 
-      className="card bg-white w-full h-auto shadow-lg overflow-hidden cursor-pointer transition hover:scale-[1.02] rounded-lg"
+      className="card bg-white w-full h-auto overflow-hidden cursor-pointer transition hover:scale-[1.02] "
       onClick={handleClick}
     >
       <div 
@@ -44,9 +43,13 @@ export default function ProductCard({ product, bgColor }) {
         <div className="flex items-center justify-between">
           <span className="text-black font-bold text-md">{product.price}</span>
         </div>
-        <div className="mt-2 flex gap-4">
-          <span className="bg-gray-300 text-black text-xs font-semibold px-2 py-1 rounded-full">Colors</span>
-          <div className="flex items-center gap-1">
+        
+  
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          <span className="bg-gray-300 text-black text-xs font-semibold px-2 py-1 rounded-full">
+            Colors
+          </span>
+          <div className="flex gap-1 w-full sm:w-auto">
             {product.colors.map((color, index) => (
               <button
                 key={index}

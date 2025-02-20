@@ -12,7 +12,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="max-w-screen-full bg-white rounded-3xl ml-5 mx-auto p-6 mt-16">
+    <div className="max-w-screen-full bg-white rounded-3xl h-screen mx-auto p-6 ">
       <h1 className="text-3xl font-bold text-gray-900 mb-6 ">Checkout</h1>
 
       {orderPlaced ? (

@@ -21,7 +21,7 @@ export default function ProductList() {
 
   return (
     <div className="w-full p-4 flex flex-col">
-      {/* Sorting Dropdown */}
+  
       <div className="w-full flex justify-end items-center mb-4">
         <h2 className="text-lg font-bold mr-4">Filters:</h2>
         <select onChange={handleSortChange} className="border p-2 rounded bg-white text-black">

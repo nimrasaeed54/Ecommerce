@@ -7,7 +7,7 @@ export default function Profile() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="p-4 sm:p-6 ml-10 sm:ml-7 mt-12 bg-white rounded-3xl max-w-full mx-4 sm:mx-0"
+      className="p-4 sm:p-6 h-screen bg-white rounded-3xl max-w-full mx-4 sm:mx-0"
     >
       <motion.h1
         initial={{ opacity: 0 }}
