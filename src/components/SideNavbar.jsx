@@ -14,34 +14,37 @@ export default function NavbarWithSidebar({ children }) {
     <div className="flex h-screen">
       <div
         className={`fixed top-0 left-0 h-full bg-slate-300 text-black transition-all duration-300 
-        ${isOpen ? "w-40" : "w-0"} lg:w-32 z-50 flex flex-col items-center overflow-hidden`}
+        ${isOpen ? "w-40" : "w-0"} lg:w-32  flex flex-col items-center overflow-hidden`}
       >
-        <ul className="mt-24 space-y-6 w-full">
-          {[
-            { name: "Home", icon: <FiHome size={20} />, link: "/" },
-            { name: "Products", icon: <FiPackage size={20} />, link: "/products" },
-            { name: "Cart", icon: <FiShoppingCart size={20} />, link: "/cart" },
-            { name: "Profile", icon: <FiUser size={20} />, link: "/profile" },
-          ].map((item) => (
-            <li
-              key={item.name}
-              className="w-full flex justify-center"
-              onClick={() => {
-                setActiveItem(item.name);
-                setIsOpen(false);
-              }}
-            >
-              <Link to={item.link} className="flex flex-col items-center">
-                <div
-                  className={`flex items-center justify-center rounded-full h-12 w-12 ${activeItem === item.name ? "bg-[#2B8AF0] text-white" : "bg-none text-black"
-                    }`}
-                >
-                  {item.icon}
-                </div>
-                <span className="mt-2 text-sm">{item.name}</span>
-              </Link>
-            </li>
-          ))}
+        <ul className="mt-32 space-y-6 w-full">
+        {[
+  { name: "Home", icon: <FiHome size={20} />, link: "/" },
+  { name: "Products", icon: <FiPackage size={20} />, link: "/products" },
+  { name: "Cart", icon: <FiShoppingCart size={20} />, link: "/cart" },
+  { name: "Profile", icon: <FiUser size={20} />, link: "/profile" },
+].map((item) => (
+  <li key={item.name} className="w-full flex justify-center">
+    <Link
+      to={item.link}
+      className="flex flex-col items-center"
+      onClick={() => {
+        setActiveItem(item.name);
+        setIsOpen(false);
+      }}
+    >
+      <div
+        className={`flex items-center justify-center rounded-full h-12 w-12 ${
+          activeItem === item.name
+            ? "bg-[#2B8AF0] text-white"
+            : "bg-none text-black"
+        }`}
+      >
+        {item.icon}
+      </div>
+      <span className="mt-2 text-sm">{item.name}</span>
+    </Link>
+  </li>
+))}
         </ul>
       </div>
 
@@ -68,7 +71,7 @@ export default function NavbarWithSidebar({ children }) {
               <img
                 src={logo}
                 alt="Logo"
-                className="h-36 lg:h-44 w-auto ml-10 sm:h-32 sm:ml-20 lg:ml-0 transform scale-125"
+                className="h-36 lg:h-40 w-auto ml-10 sm:h-32 sm:ml-20 lg:ml-0 p-0  transform scale-125"
                 style={{ transformOrigin: "left center" }}
               />
             </div>

@@ -11,7 +11,7 @@ const Searchbar = () => {
   };
 
   return (
-    <div className="relative w-full ml-10 max-w-md mx-auto p-4">
+    <div className="relative w-full item-center max-w-md mx-auto p-4">
       <input
         type="text"
         value={query}
@@ -19,7 +19,7 @@ const Searchbar = () => {
         placeholder="Search for a product..."
         className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full bg-white text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-500"
       />
-      <FiSearch size={20} className="absolute left-5 top-1/2 transform -translate-y-1/2 text-gray-500" />
+      <FiSearch size={20} className="absolute left-6 top-1/2 transform -translate-y-1/2 text-gray-500" />
     </div>
   );
 };
