@@ -11,7 +11,7 @@ export default function Home() {
       initial={{ opacity: 0, y: 50 }} 
       animate={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.8 }}
-      className="bg-white  rounded-3xl px-4 py-6"
+      className="bg-white  rounded-3xl px-4 py-20 lg:py-6 md:py-10 "
     >
       <div className="flex flex-col lg:flex-row gap-6">
         <motion.div 

@@ -48,7 +48,7 @@ const shoesData = [
   },
   { 
     id: 5, 
-    name: "New Balance 574", 
+    name: "New Balance57", 
     price: "110", 
     img: shoe5, 
     colors: ["#6495ED", "#FF1493", "#20B2AA"],
